@@ -1,0 +1,4 @@
+*.exegit filter=lfs diff=lfs merge=lfs -text
+add filter=lfs diff=lfs merge=lfs -text
+. filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
