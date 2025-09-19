@@ -1,0 +1,20 @@
+{
+    "window_title": "AVPN.PRO Keenetic Configurator",
+    "promo_text": "1 USDT = 30 days of unlimited Internet",
+    "site_button": "Go to AVPN.PRO website",
+    "telegram_button": "Our Telegram Bot",
+    "warning_text": "Warning: the website might be blocked in your country.",
+    "credo_text": "Our Credo - freedom and complete anonymity!!!",
+    "conf_file_placeholder": "Path to .conf file...",
+    "select_file_button": "Select file",
+    "ip_placeholder": "Router IP (192.168.1.1)",
+    "user_placeholder": "Username (admin)",
+    "password_placeholder": "Administrator password",
+    "start_button": "Start Configuration",
+    "start_button_working": "Working...",
+    "manual_steps_title": "🔴 STEP 1: ROUTER PREPARATION (MANUAL)",
+    "manual_steps_content": "Before you proceed, please perform the following steps in your router's web interface:\n\n➡️ 1. CHECK VERSION AND COMPONENTS:\n   - Go to 'Management' -> 'General system settings'.\n   - Ensure 'KeeneticOS version' is 4.2 or newer. Update if necessary.\n   - Click 'Component options' and make sure 'WireGuard VPN', 'DNS-over-TLS proxy', and 'DNS-over-HTTPS proxy' are checked.\n\n➡️ 2. UPLOAD CONFIG AND ENABLE INTERNET:\n   - Go to 'Internet' -> 'Other connections'.\n   - In the 'Wireguard' section, click 'Load from file' and select your .conf file.\n   - After the new connection appears, click on it.\n   - Check the 'Use for Internet access' box and click 'Save'.\n\n➡️ 3. RETURN TO THIS APP:\n   - After completing these steps, select the same .conf file in this application, enter your router credentials, and click 'Start Configuration' to apply ASC parameters.",
+    "pdf_button": "Instructions (PDF)",
+    "final_instructions_title": "\n🔴 STEP 3: FINAL CHECK AND POLICY SETUP",
+    "final_instructions_content": "➡️ 1. ENABLE THE CONNECTION:\n   - Go to 'Internet' -> 'Other connections'.\n   - Find your new connection and click the switch to enable it. The indicator should turn green.\n\n➡️ 2. VERIFY IT WORKS:\n   - On any device (phone, computer), go to the website 2ip.io.\n   - The IP address on the site should change to your VPN server's IP.\n\n=====================================================\n⭐ ADVANCED SETUP (OPTIONAL, BUT RECOMMENDED FOR STABILITY IN SOME CASES) ⭐\n=====================================================\nIf you want ONLY SOME devices to use the VPN while others connect directly, configure 'Connection policies':\n\n   - In the router, go to 'Internet' -> 'Connection priorities'.\n   - Click '+ Add policy' and name it 'VPN'.\n   - In the new 'VPN' policy, check the box ONLY next to your new connection (e.g., 'amnezia_for_awg') and click 'Save'.\n   - Go to the 'Policy assignment' tab and drag and drop the desired devices from the 'Default policy' to your new 'VPN' policy."
+}
