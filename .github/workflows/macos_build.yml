@@ -1,0 +1,52 @@
+name: Build macOS Application
+
+# Триггер: Запускать этот процесс, когда публикуется новый релиз
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    # Шаг 1: Запустить последнюю версию macOS
+    runs-on: macos-latest
+
+    steps:
+      # Шаг 2: Скачать код из вашего репозитория
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Шаг 3: Установить Python нужной версии
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # Шаг 4: Установить все необходимые библиотеки
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install customtkinter pillow pyinstaller
+
+      # Шаг 5: Собрать приложение с помощью PyInstaller
+      - name: Build the application
+        run: |
+          pyinstaller --onefile --windowed --icon="app.ico" --name "AVPNPRO Keenetic Configurator" \
+          --add-data="logo.png:." \
+          --add-data="assets:assets" \
+          --add-data="languages:languages" \
+          main.py
+
+      # Шаг 6: Заархивировать готовую программу (.app) в .zip
+      - name: Create Zip from .app
+        run: ditto -c -k --sequesterRsrc --keepParent dist/"AVPNPRO Keenetic Configurator.app" dist/AVPNPRO_Keenetic_Configurator_macOS.zip
+
+      # Шаг 7: Загрузить готовый .zip архив в созданный релиз
+      - name: Upload macOS Zip to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./dist/AVPNPRO_Keenetic_Configurator_macOS.zip
+          asset_name: AVPNPRO_Keenetic_Configurator_macOS.zip
+          asset_content_type: application/zip
